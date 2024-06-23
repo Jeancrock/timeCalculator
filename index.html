@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./src/01talent-profil-400x400-1.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <title>Z01</title>
+</head>
+
+<body>
+    <div id="fond"></div>
+    <main>
+        <div id="helloworld">
+            <img class="content" id="logo" src="./src/logo.png"></img>
+            <div class="content">
+                <label>Ma journée est finie : </label>
+                <input id="doneToday" type="checkbox"><br>
+            </div>
+            <div class="content">
+                <p>Heures validées : </p>
+                <input id="heure" type="text" placeholder="hh:mm" maxlength="6">
+            </div>
+            <div class="content">
+                <p>Jours de congé/feriés : </p>
+                <input type="text" id="jour" placeholder="j" maxlength="2">
+            </div><br>
+            <div>
+                <p class="content">Je dois faire <span class="reponse" id="totalMonth"></span> dans le mois.</p>
+                <p class="content">Je dois avoir fait <span class="reponse" id="totalToday"></span> ce soir.</p>
+                <p class="content"><span class="reponse" id="difference"></span> <span class="reponse"
+                        id="nature"></span></p>
+                <p class="content"><span class="reponse" id="rythme"></span></p>
+            </div>
+        </div>
+    </main>
+    <script src="./app/app.js"></script>
+</body>
+
+</html>
