@@ -190,10 +190,14 @@ async function timePerDay() {
 
     let tmpMn = remainingMn - tmpHr * 60;
     let mnt = Math.ceil(tmpMn);
+    if (mnt < 10) {
+        MPDTxt = "0" + mnt + "mn";
+    } else {
+        MPDTxt = mnt + "mn";
+    }
     console.log("mnt", mnt)
 
     let hourPerD = Math.floor(tmpHr);
-    // let hourPerD = Math.floor((remainingMn / 60) / remainingDays);
     HPDTxt = hourPerD + "h";
 
     MPDTxt = mnt + "mn";
