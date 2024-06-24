@@ -76,6 +76,7 @@ async function DoneTime(arg) {
         if (k === '.' ||
             k === ',' ||
             k === ':' ||
+            k === 'H' ||
             k === 'h') {
             hoursParsed = true;
             continue;
