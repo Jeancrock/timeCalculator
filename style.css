@@ -5,6 +5,7 @@
 
 html,
 body {
+    overflow: hidden;
     background: #1a191c;
     width: 100%;
     height: 100%;
