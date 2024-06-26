@@ -20,7 +20,6 @@ body {
 }
 
 main {
-    overflow: scroll;
     background: rgb(100, 0, 50, 0.25);
     position: absolute;
     left: 50%;
@@ -31,6 +30,7 @@ main {
 }
 
 #helloworld {
+    overflow: scroll;
     background: #1a191cc3;
     display: block;
     position: absolute;
