@@ -29,6 +29,7 @@ main {
 }
 
 #helloworld {
+    overflow: scroll;
     background: #1a191c;
     display: block;
     position: absolute;
