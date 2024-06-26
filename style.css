@@ -42,8 +42,7 @@ main {
 }
 
 .content {
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     left: 50%;
     position: relative;
     transform: translateX(-50%);
