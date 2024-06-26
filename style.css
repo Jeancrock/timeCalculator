@@ -53,11 +53,15 @@ main {
     width: min-content;
 }
 
-.reponse {
-    font-size: x-large;
-    color: white;
+#elmt {
+    text-align: center;
 }
 
 input {
     width: 100%;
+}
+
+.reponse {
+    font-size: x-large;
+    color: white;
 }
