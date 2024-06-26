@@ -45,7 +45,7 @@ main {
     left: 50%;
     position: relative;
     transform: translateX(-50%);
-    width: max-content;
+    width: fit-content;
 }
 
 #logo {
@@ -56,4 +56,8 @@ main {
 .reponse {
     font-size: x-large;
     color: white;
+}
+
+input {
+    width: 100%;
 }

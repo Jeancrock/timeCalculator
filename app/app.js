@@ -93,6 +93,7 @@ async function DoneTime(arg) {
 async function calculate() {
 
     doneToday = document.getElementById("doneToday").checked;
+    let totalRem = document.getElementById("totalRem");
     let difference = document.getElementById("difference");
     let nature = document.getElementById("nature");
 
@@ -118,20 +119,45 @@ async function calculate() {
 
     let diffNature = "de retard.";
 
+
+    if (doneMinutes + ignoredDays * 7 * 60 < totalHoursInMonth * 60
+        && document.getElementById("heure").value != ""
+    ) {
+        console.log(doneMinutes)
+        console.log(totalHoursInMonth * 60)
+        let totalRemaining = totalHoursInMonth * 60 - doneMinutes - ignoredDays * 7 * 60;
+        let totalHoursRemaining = Math.floor(totalRemaining / 60) - ignoredDays * 7;
+        let totalMnRemaining = totalRemaining % 60;
+        let totalTimeRemaining;
+        if (totalHoursRemaining > 0) {
+            totalTimeRemaining = totalHoursRemaining + "h";
+        }
+        if (totalMnRemaining > 0) {
+            if (totalMnRemaining < 10) {
+                totalTimeRemaining = totalTimeRemaining + "0";
+            }
+            totalTimeRemaining = totalTimeRemaining + totalMnRemaining + "mn";
+        }
+        totalRem.innerHTML = "Il me reste " + totalTimeRemaining + " à faire dans le mois."
+    } else {
+        totalRem.innerHTML = "";
+    }
+
     if (diffValue < 0) {
         diffValue = - diffValue;
         diffNature = "d'avance .";
     }
+
     nature.innerHTML = diffNature;
     let diffHour;
     diffHour = Math.floor(diffValue / 60);
     let diffMn = (diffValue % 60);
-    if (now.getDate())
-        if (diffHour > 0) {
-            diffHour = diffHour + "h";
-        } else {
-            diffHour = "";
-        }
+
+    if (diffHour > 0) {
+        diffHour = diffHour + "h";
+    } else {
+        diffHour = "";
+    }
     if (diffMn > 0) {
         if (diffMn < 10) {
             diffMn = "0" + diffMn;
@@ -156,7 +182,9 @@ async function calculate() {
     timePerDay()
     let finish = HPDTxt + MPDTxt;
     rythme.innerHTML = "Je dois faire " + finish + "/j.";
-    if (totalHoursInMonth <= doneMinutes / 60) {
+    if (totalHoursInMonth <= doneMinutes / 60 + ignoredDays * 7) {
+        difference.innerHTML = "J'ai fini mes heures ce mois-ci.";
+        nature.innerHTML = "";
         rythme.innerHTML = "Je suis à jour.";
     }
     if (document.getElementById("heure").value == ""
@@ -176,7 +204,6 @@ async function timePerDay() {
     tmp += ignoredDays * 7 * 60
     let remainingMn = totalHoursInMonth * 60 - tmp;
 
-    console.log(doneToday)
     if (doneToday
         && openDay) {
         buff = remainingDays - 1;
@@ -187,7 +214,6 @@ async function timePerDay() {
     remainingMn /= buff
 
     let tmpHr = Math.floor(remainingMn / 60);
-    console.log("tmpHr", tmpHr)
 
     let tmpMn = remainingMn - tmpHr * 60;
     let mnt = Math.ceil(tmpMn);
@@ -196,7 +222,6 @@ async function timePerDay() {
     } else {
         MPDTxt = mnt + "mn";
     }
-    console.log("mnt", mnt)
 
     let hourPerD = Math.floor(tmpHr);
     HPDTxt = hourPerD + "h";
