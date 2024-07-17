@@ -4,39 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./src/01talent-profil-400x400-1.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="./style.css">
-    <title>Z01</title>
+    <link rel="stylesheet" href="./style/css/style.css">
+    <title>Z01 - Tracker</title>
 </head>
 
 <body>
     <div id="fond"></div>
-    <main>
-        <div id="helloworld">
-            <img class="content" id="logo" src="./src/logo.png"></img>
-            <div class="content">
-                <label>Ma journée est finie : </label>
+
+    <main class="container">
+        <img class="logo" src="./style/img/logo.png" alt="Z01 Logo">
+        <form id="timeForm">
+            <div class="form-group">
+                <label for="doneToday">My day is finished</label>
                 <input id="doneToday" type="checkbox">
             </div>
-            <div class="content">
-                <p>Heures validées au dernier jour ouvré : </p>
-                <input id="heure" type="text" placeholder="hh:mm" maxlength="6">
+            <div class="form-group">
+                <label for="heure">Hours worked yesterday:</label>
+                <input id="heure" type="text" placeholder="hh:mm" maxlength="5">
             </div>
-            <div class="content">
-                <p>Jours de congé/feriés : </p>
-                <input type="text" id="jour" placeholder="j" maxlength="2">
+            <div class="form-group">
+                <label for="jour">Vacation/holiday days this month:</label>
+                <input type="number" id="jour" min="0" placeholder="0">
             </div>
-            <div id="elmt">
-                <p class="content">Je dois faire <span class="reponse" id="totalMonth"></span> dans le mois.</p>
-                <p class="content reponse" id="totalRem"></p>
-                <p class="content">Je dois avoir fait <span class="reponse" id="totalToday"></span> ce soir.</p>
-                <p class="content"><span class="reponse" id="difference"></span> <span class="reponse"
-                        id="nature"></span></p>
-                <p class="content"><span class="reponse" id="rythme"></span></p><br>
-            </div>
+        </form>
+        <div id="results">
+            <p>I need to work <span id="totalMonth"></span> hours this month.</p>
+            <p id="totalRem"></p>
+            <p>I should have completed <span id="totalToday"></span> hours by tonight.</p>
+            <p><span id="difference"></span> <span id="nature"></span></p>
+            <p><span id="rythme"></span></p>
         </div>
     </main>
-    <script src="./app/app.js"></script>
+    <script src="./style/js/index.js"></script>
 </body>
 
 </html>
